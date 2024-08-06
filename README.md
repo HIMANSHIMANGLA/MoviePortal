@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie Portal
 
-## Getting Started
+This project is a fullstack Netflix clone built using Next.js 13, MongoDB, Tailwind CSS, and NextAuth. The application features user authentication via GitHub, secure profile management with PIN authentication, dynamic content browsing, and a responsive, interactive user interface.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Authentication**: Secure login using GitHub via NextAuth.
+- **Profile Management**: Create, delete, and manage up to four user profiles per account, each secured with a PIN.
+- **Dynamic Content**: Browse and search movies and TV shows by categories.
+- **Responsive Design**: Seamless user experience across all devices using Tailwind CSS.
+- **Animations**: Interactive UI enhanced with Framer Motion for smooth transitions.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js 13, Tailwind CSS, Framer Motion
+- **Backend**: Next.js API Routes, MongoDB, Mongoose
+- **Authentication**: NextAuth with GitHub provider
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To get a local copy up and running, follow these simple steps:
 
-## Deploy on Vercel
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/netflix-clone.git
+   cd netflix-clone
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Set up environment variables**:
+   Create a `.env.local` file in the root directory and add the following environment variables:
+   ```env
+   MONGO_URI=your-mongodb-uri
+   GITHUB_ID=your-github-client-id
+   GITHUB_SECRET=your-github-client-secret
+   ```
+
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Usage
+
+1. **Sign in** with your GitHub account.
+2. **Create and manage profiles**, each secured with a PIN.
+3. **Browse** and **search** for movies and TV shows.
+4. **Add movies** to your favorites list.
+
+### Authentication
+- **POST** `/api/auth/[...nextauth]`: Handles authentication using NextAuth and GitHub provider.
+
+### Account Management
+- **POST** `/api/account/create`: Creates a new user profile.
+- **DELETE** `/api/account/delete`: Deletes a user profile.
+- **GET** `/api/account/getAll`: Retrieves all profiles for the authenticated user.
+- **POST** `/api/account/login`: Authenticates a user profile using a PIN.
