@@ -8,6 +8,9 @@ This project is a fullstack Netflix clone built using Next.js 13, MongoDB, Tailw
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Authentication](#Authentication)
+- [Account Management](#Account-Management)
+  
 
 ## Features
 
